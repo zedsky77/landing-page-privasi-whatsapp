@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>WhatsApp Privasi</title>
+
+  <!-- Google Font -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --wa-green: #25D366;
+      --wa-dark: #128C7E;
+      --wa-light: #DCF8C6;
+      --text-dark: #1f2937;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Poppins', sans-serif;
+      scroll-behavior: smooth;
+    }
+
+    body {
+      background: linear-gradient(135deg, var(--wa-green), var(--wa-dark));
+      min-height: 200vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-start;
+      align-items: center;
+      color: white;
+      overflow-x: hidden;
+    }
+
+    section {
+      min-height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 20px;
+    }
+
+    .container {
+      background: rgba(255,255,255,0.08);
+      backdrop-filter: blur(12px);
+      border-radius: 20px;
+      padding: 40px 30px;
+      text-align: center;
+      max-width: 500px;
+      width: 90%;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+
+      opacity: 0;
+      transform: translateY(60px);
+      transition: all 1s ease;
+    }
+
+    .container.show {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .icon {
+      font-size: 60px;
+      margin-bottom: 20px;
+      animation: float 3s ease-in-out infinite;
+    }
+
+    @keyframes float {
+      0%,100% { transform: translateY(0); }
+      50% { transform: translateY(-10px); }
+    }
+
+    h1 {
+      font-weight: 600;
+      margin-bottom: 15px;
+    }
+
+    p {
+      font-size: 16px;
+      opacity: 0.9;
+      line-height: 1.6;
+    }
+
+    .btn {
+      margin-top: 25px;
+      display: inline-block;
+      padding: 12px 25px;
+      border-radius: 50px;
+      background: white;
+      color: var(--wa-dark);
+      text-decoration: none;
+      font-weight: 600;
+      transition: all 0.3s ease;
+    }
+
+    .btn:hover {
+      transform: scale(1.08);
+      box-shadow: 0 8px 25px rgba(0,0,0,0.3);
+    }
+
+    .scroll-down {
+      position: absolute;
+      bottom: 20px;
+      font-size: 14px;
+      opacity: 0.8;
+      animation: bounce 2s infinite;
+    }
+
+    @keyframes bounce {
+      0%,100% { transform: translateY(0); }
+      50% { transform: translateY(10px); }
+    }
+
+    footer {
+      padding: 20px;
+      font-size: 13px;
+      opacity: 0.7;
+      text-align: center;
+    }
+
+    /* Responsive */
+    @media (max-width: 480px) {
+      .container {
+        padding: 30px 20px;
+      }
+
+      h1 {
+        font-size: 22px;
+      }
+
+      p {
+        font-size: 14px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Section 1 -->
+  <section>
+    <div class="container reveal">
+
+      <div class="icon">💬</div>
+
+      <h1>WhatsApp Privasi</h1>
+
+      <p>
+        No WhatsApp privasi hanya untuk keperluan penting.<br>
+        Silakan DM Instagram untuk komunikasi lebih lanjut.
+      </p>
+
+      <!-- GANTI LINK DI BAWAH DENGAN LINK IG KAMU -->
+      <a href="https://instagram.com/_riodwip" target="_blank" class="btn">
+        DM Instagram
+      </a>
+
+    </div>
+
+    <div class="scroll-down">Scroll ke bawah ↓</div>
+  </section>
+
+
+  <!-- Section 2 -->
+  <section>
+    <div class="container reveal">
+      <h1>Privasi Diutamakan 🔒</h1>
+      <p>
+        Kontak WhatsApp hanya digunakan untuk keperluan penting.<br>
+        Terima kasih telah menghargai privasi.
+      </p>
+    </div>
+  </section>
+
+
+  <footer>
+    © 2026 Privasi Dilindungi
+  </footer>
+
+
+  <script>
+
+    function revealOnScroll() {
+      const reveals = document.querySelectorAll('.reveal');
+
+      reveals.forEach((element) => {
+        const windowHeight = window.innerHeight;
+        const elementTop = element.getBoundingClientRect().top;
+        const elementVisible = 100;
+
+        if (elementTop < windowHeight - elementVisible) {
+          element.classList.add('show');
+        }
+      });
+    }
+
+    window.addEventListener('scroll', revealOnScroll);
+
+    // trigger on load
+    revealOnScroll();
+
+  </script>
+
+</body>
+</html>
